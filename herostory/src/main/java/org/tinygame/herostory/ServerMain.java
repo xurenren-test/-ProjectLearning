@@ -13,6 +13,9 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 服务器入口类
+ */
 public class ServerMain {
     // 日志对象
     static private final Logger LOGGER = LoggerFactory.getLogger(ServerMain.class);
@@ -41,7 +44,11 @@ public class ServerMain {
                         // webSocket 协议处理器，在这里握手、ping、pong等消息
                         new WebSocketServerProtocolHandler("/websocket"),
                         // 自定义的消息处理器
-                        new GameMsgHandler()
+                        new GameMsgHandler(),
+                        // 自定义消息编码器
+                        new GameMsgEncoder(),
+                        // 自定义消息解码器
+                        new GamesgDecoder()
                 );
             }
         });

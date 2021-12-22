@@ -43,12 +43,12 @@ public class ServerMain {
                         new HttpObjectAggregator(65535),
                         // webSocket 协议处理器，在这里握手、ping、pong等消息
                         new WebSocketServerProtocolHandler("/websocket"),
-                        // 自定义的消息处理器
-                        new GameMsgHandler(),
+                        // 自定义消息解码器
+                        new GameMsgDecoder(),
                         // 自定义消息编码器
                         new GameMsgEncoder(),
-                        // 自定义消息解码器
-                        new GamesgDecoder()
+                        // 自定义的消息处理器
+                        new GameMsgHandler()
                 );
             }
         });

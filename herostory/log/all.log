@@ -1,116 +1,19 @@
-[21:58:54,981] [INFO] ServerMain.main --> 服务器启动成功
-[13:56:34,376] [INFO] ServerMain.main --> 服务器启动成功
-[14:25:44,962] [INFO] ServerMain.main --> 服务器启动成功
-[14:25:52,532] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:25:52,534] [WARN] DefaultChannelPipeline.onUnhandledInboundException --> An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
-java.lang.NullPointerException
-	at org.tinygame.herostory.GameMsgDecoder.channelRead(GameMsgDecoder.java:43)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93)
-	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:272)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:326)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:313)
-	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:427)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:281)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1050)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.lang.Thread.run(Thread.java:748)
-[14:25:52,536] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
-[14:25:52,537] [WARN] DefaultChannelPipeline.onUnhandledInboundException --> An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
-java.lang.NullPointerException
-	at org.tinygame.herostory.GameMsgDecoder.channelRead(GameMsgDecoder.java:43)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93)
-	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:272)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:326)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:300)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1050)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.lang.Thread.run(Thread.java:748)
-[14:34:19,752] [INFO] ServerMain.main --> 服务器启动成功
-[14:34:35,648] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:34:35,649] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
-[14:44:12,556] [INFO] ServerMain.main --> 服务器启动成功
-[14:44:19,678] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:44:19,679] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
-[14:47:22,591] [INFO] ServerMain.main --> 服务器启动成功
-[14:47:29,291] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:47:29,292] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
-[14:50:47,853] [INFO] ServerMain.main --> 服务器启动成功
-[14:50:54,352] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:50:54,353] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
-[14:51:03,627] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:51:03,628] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
-[14:51:05,046] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:05,577] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:05,756] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:06,157] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:06,374] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:06,590] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:06,760] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:06,976] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:10,020] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:10,242] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:10,606] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:10,760] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:11,108] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:11,377] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:11,591] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:11,775] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:11,957] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:51:12,141] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 4
-[14:54:53,269] [INFO] ServerMain.main --> 服务器启动成功
-[14:54:59,652] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 0
-[14:54:59,653] [ERROR] GameMsgDecoder.channelRead --> 无法识别的消息, msgCode = 2
+[06:11:46,987] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[06:11:47,119] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[06:11:47,136] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[06:11:47,138] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[06:11:47,149] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[06:11:47,382] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[06:11:47,399] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[06:11:47,414] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[06:11:47,430] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[06:11:47,445] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[06:11:47,462] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[06:11:47,480] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[06:11:47,486] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[06:11:47,502] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[06:11:47,515] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[06:11:47,531] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[06:11:47,547] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[06:11:47,563] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[06:11:49,267] [INFO] ServerMain.main --> 服务器启动成功

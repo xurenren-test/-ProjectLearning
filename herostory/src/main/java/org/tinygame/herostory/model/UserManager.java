@@ -38,4 +38,13 @@ public final class UserManager {
         return userMap.values();
     }
 
+    /**
+     * 根据id获取用户
+     * @param userId 用户id
+     * @return 返回用户对象
+     */
+    public static User getUserById(int userId) {
+        return userMap.get(userId);
+    }
+
 }

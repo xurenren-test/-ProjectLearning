@@ -36,17 +36,17 @@ public final class GameMsgRecognizer {
                 continue;
             }
             // 获取到类名
-            String className = innerClazz.getSimpleName();
-            className = className.toLowerCase();
+            String clazzName = innerClazz.getSimpleName();
+            clazzName = clazzName.toLowerCase();
 
             // 遍历消息代号，如移动
             for (GameMsgProtocol.MsgCode msgCode : GameMsgProtocol.MsgCode.values()) {
                 String strMsgCode = msgCode.name();
                 // 取消代号中下划线
-                strMsgCode.replaceAll("_", "");
-                strMsgCode.toLowerCase();
+                strMsgCode = strMsgCode.replaceAll("_","");
+                strMsgCode = strMsgCode.toLowerCase();
                 // 判断是否以该类名开头
-                if (!strMsgCode.startsWith(className)) {
+                if (!strMsgCode.startsWith(clazzName)) {
                     continue;
                 }
                 try {
@@ -93,11 +93,11 @@ public final class GameMsgRecognizer {
     /**
      * 根据消息类获取消息编号
      */
-    public static int getMsgCodeByClazz(Class<?> msgClass) {
-        if (msgClass == null) {
+    public static int getMsgCodeByClazz(Class<?> msgClazz) {
+        if (msgClazz == null) {
             return -1;
         }
-        Integer msgCode = msgClazzAndMsgCodeMap.get(msgClass);
+        Integer msgCode = msgClazzAndMsgCodeMap.get(msgClazz);
         if (msgCode != null) {
             return msgCode.intValue();
         } else {

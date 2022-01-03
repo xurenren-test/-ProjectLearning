@@ -1,6 +1,5 @@
 package org.tinygame.herostory;
 
-import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -16,6 +15,7 @@ import org.slf4j.LoggerFactory;
 public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
 
     private static Logger LOGGER = LoggerFactory.getLogger(GameMsgDecoder.class);
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (!(msg instanceof BinaryWebSocketFrame)) {
@@ -31,7 +31,7 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
 
         // 获取消息构建者
         Message.Builder msgBuilder = GameMsgRecognizer.getBuilderByMsgCode(msgCode);
-        if (msgBuilder == null){
+        if (msgBuilder == null) {
             LOGGER.error("无法识别的消息, msgCode = {}", msgCode);
             return;
         }
@@ -39,8 +39,9 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
         byte[] msgBody = new byte[byteBuf.readableBytes()];
         byteBuf.readBytes(msgBody);
 
-        msgBuilder.mergeFrom(msgBody);
         msgBuilder.clear();
+        msgBuilder.mergeFrom(msgBody);
+
         // 构建消息
         Message newMsg = msgBuilder.build();
 
@@ -59,7 +60,7 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
 //            case GameMsgProtocol.MsgCode.USER_MOVE_TO_CMD_VALUE:
 //                cmd = GameMsgProtocol.UserMoveToCmd.parseFrom(msgBody);
 //                break;
-        }
-
     }
+
+}
 

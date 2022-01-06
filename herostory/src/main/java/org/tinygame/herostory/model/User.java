@@ -10,6 +10,10 @@ public class User {
     public int userId;
 
     /**
+     * 用户名
+     */
+    public String userName;
+    /**
      *英雄形象
      */
     public String heroAvatar;
@@ -18,4 +22,10 @@ public class User {
      * 移动状态
      */
     public final MoveState moveState = new MoveState();
+
+    /**
+     * 当前血量
+     */
+    public int currHp;
+
 }

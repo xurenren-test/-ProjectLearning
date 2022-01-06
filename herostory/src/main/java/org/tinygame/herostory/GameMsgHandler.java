@@ -4,6 +4,8 @@ import com.google.protobuf.GeneratedMessageV3;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.AttributeKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.cmdHandler.*;
 import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
@@ -13,6 +15,8 @@ import org.tinygame.herostory.msg.GameMsgProtocol;
  * 自定义消息处理器
  */
 public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
+
+    static private final Logger LOGGER = LoggerFactory.getLogger(GameMsgHandler.class);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -45,27 +49,8 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("收到客户端消息，msgClass = " + msg.getClass().getName() + ",msg = " + msg);
-
-        // ？相当于占位，不知道消息类型，只知道属于GeneratedMessageV3子类（向上转型）
-        ICmdHandler<? extends GeneratedMessageV3> cmdHandler = CmdHandlerFactory.cerate(msg.getClass());
-
-        if (cmdHandler != null) {
-            cmdHandler.handle(ctx, cast(msg));
-        }
-    }
-
-    /**
-     * 消息对象转型
-     * @param msg
-     * @param <TCmd>
-     * @return
-     */
-    private static <TCmd extends GeneratedMessageV3> TCmd cast(Object msg) {
-        if (msg == null) {
-            return null;
-        } else {
-            return (TCmd) msg;
+        if (msg instanceof GeneratedMessageV3) {
+            MainThreadProcessor.getInstance().process(ctx, (GeneratedMessageV3) msg);
         }
     }
 

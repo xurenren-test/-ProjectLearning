@@ -31,7 +31,8 @@ public final class CmdHandlerFactory {
         LOGGER.info("==== 完成 Cmd 和 Handler 的关联 ====");
 
         // 获取实现ICmdHandler的所有实现类列表
-        Set<Class<?>> clazzSet = PackageUtil.listSubClazz(CmdHandlerFactory.class.getPackage().getName(), true, ICmdHandler.class);
+        final String packageName = CmdHandlerFactory.class.getPackage().getName();
+        Set<Class<?>> clazzSet = PackageUtil.listSubClazz(packageName, true, ICmdHandler.class);
 
         for (Class<?> clazz : clazzSet) {
             // getModifiers获取修饰符，做 & 位运算，判断是否属于抽象类
@@ -52,7 +53,7 @@ public final class CmdHandlerFactory {
                 // 获取方法中参数类型
                 Class<?>[] paramTypeArray = currMethod.getParameterTypes();
                 // 参数小于2，或者第二个参数消息类型不属于 GeneratedMessageV3 ，则退出
-                if (paramTypeArray.length < 2 ||
+                if (paramTypeArray.length < 2 || paramTypeArray[1] == GeneratedMessageV3.class ||
                         !GeneratedMessageV3.class.isAssignableFrom(paramTypeArray[1])) {
                     continue;
                 }
@@ -76,6 +77,12 @@ public final class CmdHandlerFactory {
         }
     }
 
+    /**
+     * 创建指令处理器工厂
+     *
+     * @param msgclzz 消息类
+     * @return 指令处理器
+     */
     public static ICmdHandler<? extends GeneratedMessageV3> cerate(Class<?> msgclzz) {
         if (msgclzz == null) {
             return null;

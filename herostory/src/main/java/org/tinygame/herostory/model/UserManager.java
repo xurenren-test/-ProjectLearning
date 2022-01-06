@@ -40,6 +40,7 @@ public final class UserManager {
 
     /**
      * 根据id获取用户
+     *
      * @param userId 用户id
      * @return 返回用户对象
      */

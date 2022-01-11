@@ -13,6 +13,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
+import org.tinygame.herostory.util.RedisUtil;
 
 /**
  * 服务器入口类
@@ -27,11 +28,12 @@ public class ServerMain {
         CmdHandlerFactory.init();
         GameMsgRecognizer.init();
         MySqlSessionFactory.init();
+        RedisUtil.init();
 
         // NioEventLoopGroup 相当于线程池
-        // 负责处理客户端连接
+        // 负责处理客户端连接（相当于酒店门口迎宾）
         EventLoopGroup bossGroup = new NioEventLoopGroup();
-        // 客户端连接后，负责读写消息（负责业务）
+        // 客户端连接后，负责读写消息、负责业务（相当于服务员负责点菜）
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         // netty 启动
         ServerBootstrap b = new ServerBootstrap();

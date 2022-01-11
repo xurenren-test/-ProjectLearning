@@ -3,6 +3,7 @@ package org.tinygame.herostory.model;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用户管理器
@@ -13,7 +14,7 @@ public final class UserManager {
     }
 
     //用户字典，根据用户id与用户建立一对一的关系
-    static private final Map<Integer, User> userMap = new HashMap<>();
+    static private final Map<Integer, User> userMap = new ConcurrentHashMap<>();
 
     /**
      * 添加用户

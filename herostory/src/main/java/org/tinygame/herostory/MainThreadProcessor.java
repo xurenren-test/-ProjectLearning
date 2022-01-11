@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * 主线程处理器
+ * 主线程处理器 （相当于上菜员）
  */
 public final class MainThreadProcessor {
 
@@ -47,7 +47,7 @@ public final class MainThreadProcessor {
     }
 
     /**
-     * 处理消息
+     * 处理客户端消息
      *
      * @param ctx 客户端信道上下文
      * @param msg 消息对象
@@ -75,10 +75,20 @@ public final class MainThreadProcessor {
             try {
                 cmdHandler.handle(ctx, cast(msg));
             } catch (Exception e) {
-               LOGGER.error(e.getMessage(),e);
+                LOGGER.error(e.getMessage(), e);
             }
         });
 
+    }
+
+    /**
+     * 处理消息对象
+     * @param r Runnable实例
+     */
+    public void process(Runnable r) {
+        if (r != null) {
+            es.submit(r);
+        }
     }
 
     /**

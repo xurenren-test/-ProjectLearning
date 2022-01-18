@@ -36,6 +36,7 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
         if (userId == null) {
             return;
         }
+        LOGGER.info("用户离线, userId = {}", userId);
 
         UserManager.removeUserById(userId);
         //构建客户端用户离场消息

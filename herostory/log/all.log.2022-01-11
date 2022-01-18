@@ -1,0 +1,748 @@
+[13:01:25,097] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[13:01:25,303] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[13:01:25,318] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[13:01:25,326] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[13:01:25,330] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[13:01:25,338] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[13:01:25,370] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[13:01:25,518] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[13:01:25,552] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[13:01:25,556] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[13:01:25,560] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[13:01:25,566] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[13:01:25,575] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[13:01:25,579] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[13:01:25,582] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[13:01:25,585] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[13:01:25,591] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[13:01:25,597] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[13:01:25,603] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[13:01:25,610] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[13:01:25,617] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[13:01:25,623] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[13:01:25,634] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[13:01:25,636] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[13:01:25,640] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[13:01:25,642] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[13:01:28,966] [INFO] ServerMain.main --> 服务器启动成功
+[13:03:53,169] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[13:03:53,170] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[13:03:53,593] [INFO] LoginService$AsyncGetUserByName.doAsunc --> 当前线程 = AsyncOperationProcessor_1
+[13:03:55,629] [ERROR] LoginService.updateUserBasicInfoInRedis --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.login.LoginService.updateUserBasicInfoInRedis(LoginService.java:75)
+	at org.tinygame.herostory.login.LoginService.access$100(LoginService.java:21)
+	at org.tinygame.herostory.login.LoginService$AsyncGetUserByName.doAsunc(LoginService.java:158)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 11 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 18 more
+[13:03:55,633] [INFO] UserLoginCmdHandler.lambda$null$0 --> 当前线程 = MainThreadProcessor
+[13:03:55,633] [INFO] UserLoginCmdHandler.lambda$null$0 --> 用户登录成功，userId = 1，userName = a
+[13:03:55,707] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[13:03:55,707] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[13:03:55,712] [INFO] LoginService$AsyncGetUserByName.doAsunc --> 当前线程 = AsyncOperationProcessor_1
+[13:03:57,165] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd,msg = 
+[13:03:57,175] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd,msg = 
+[13:03:57,713] [ERROR] LoginService.updateUserBasicInfoInRedis --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.login.LoginService.updateUserBasicInfoInRedis(LoginService.java:75)
+	at org.tinygame.herostory.login.LoginService.access$100(LoginService.java:21)
+	at org.tinygame.herostory.login.LoginService$AsyncGetUserByName.doAsunc(LoginService.java:158)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 11 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 18 more
+[13:03:57,714] [INFO] UserLoginCmdHandler.lambda$null$0 --> 当前线程 = MainThreadProcessor
+[13:03:57,714] [INFO] UserLoginCmdHandler.lambda$null$0 --> 用户登录成功，userId = 1，userName = a
+[13:03:57,735] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd,msg = 
+[13:03:57,736] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd,msg = 
+[13:03:59,091] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd,msg = 
+[13:04:00,411] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd,msg = 
+[13:04:01,101] [ERROR] RankService$AsyncGetRank.doAsunc --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.rank.RankService$AsyncGetRank.doAsunc(RankService.java:78)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 9 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 16 more
+[13:04:01,491] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd,msg = 
+[13:04:03,107] [ERROR] RankService$AsyncGetRank.doAsunc --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.rank.RankService$AsyncGetRank.doAsunc(RankService.java:78)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 9 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 16 more
+[13:04:05,110] [ERROR] RankService$AsyncGetRank.doAsunc --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.rank.RankService$AsyncGetRank.doAsunc(RankService.java:78)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 9 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 16 more
+[15:29:48,283] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[15:29:48,379] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[15:29:48,385] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[15:29:48,392] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[15:29:48,395] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[15:29:48,399] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[15:29:48,406] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[15:29:48,508] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[15:29:48,515] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[15:29:48,520] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[15:29:48,526] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[15:29:48,533] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[15:29:48,538] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[15:29:48,544] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[15:29:48,550] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[15:29:48,555] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[15:29:48,565] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[15:29:48,571] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[15:29:48,578] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[15:29:48,585] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[15:29:48,592] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[15:29:48,600] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[15:29:48,614] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[15:29:48,620] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[15:29:48,626] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[15:29:48,634] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[15:29:50,878] [INFO] ServerMain.main --> 服务器启动成功
+[15:30:06,801] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[15:30:06,801] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[15:30:07,114] [INFO] LoginService$AsyncGetUserByName.doAsunc --> 当前线程 = AsyncOperationProcessor_1
+[15:30:09,145] [ERROR] LoginService.updateUserBasicInfoInRedis --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.login.LoginService.updateUserBasicInfoInRedis(LoginService.java:75)
+	at org.tinygame.herostory.login.LoginService.access$100(LoginService.java:21)
+	at org.tinygame.herostory.login.LoginService$AsyncGetUserByName.doAsunc(LoginService.java:158)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 11 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 18 more
+[15:30:09,149] [INFO] UserLoginCmdHandler.lambda$null$0 --> 当前线程 = MainThreadProcessor
+[15:30:09,150] [INFO] UserLoginCmdHandler.lambda$null$0 --> 用户登录成功，userId = 1，userName = a
+[15:30:09,297] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd,msg = 
+[15:30:09,305] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd,msg = 
+[15:30:11,310] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd,msg = 
+[15:30:13,318] [ERROR] RankService$AsyncGetRank.doAsunc --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.rank.RankService$AsyncGetRank.doAsunc(RankService.java:78)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 172.16.232.57:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 9 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 16 more
+[15:30:29,894] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd,msg = targetUserId: 4294967295
+
+[15:30:31,646] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd,msg = targetUserId: 4294967295
+
+[15:30:35,510] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd,msg = moveToPosX: -196.36365
+moveToPosY: 40.0
+
+[15:30:36,582] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd,msg = moveFromPosX: -136.20581
+moveFromPosY: 40.389633
+moveToPosX: 13.090903
+moveToPosY: 4.0
+
+[15:31:36,961] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[15:31:37,038] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[15:31:37,042] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[15:31:37,048] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[15:31:37,051] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[15:31:37,054] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[15:31:37,069] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[15:31:37,193] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[15:31:37,198] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[15:31:37,205] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[15:31:37,209] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[15:31:37,216] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[15:31:37,220] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[15:31:37,224] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[15:31:37,227] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[15:31:37,231] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[15:31:37,238] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[15:31:37,241] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[15:31:37,249] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[15:31:37,255] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[15:31:37,260] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[15:31:37,264] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[15:31:37,274] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[15:31:37,281] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[15:31:37,287] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[15:31:37,290] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[15:31:39,092] [INFO] ServerMain.main --> 服务器启动成功
+[15:31:51,247] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[15:31:51,247] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[15:31:51,539] [INFO] LoginService$AsyncGetUserByName.doAsunc --> 当前线程 = AsyncOperationProcessor_1
+[15:31:53,569] [ERROR] LoginService.updateUserBasicInfoInRedis --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.login.LoginService.updateUserBasicInfoInRedis(LoginService.java:75)
+	at org.tinygame.herostory.login.LoginService.access$100(LoginService.java:21)
+	at org.tinygame.herostory.login.LoginService$AsyncGetUserByName.doAsunc(LoginService.java:158)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 127.0.0.1:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 11 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 18 more
+[15:31:53,572] [INFO] UserLoginCmdHandler.lambda$null$0 --> 当前线程 = MainThreadProcessor
+[15:31:53,573] [INFO] UserLoginCmdHandler.lambda$null$0 --> 用户登录成功，userId = 1，userName = a
+[15:31:53,661] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd,msg = 
+[15:31:53,669] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd,msg = 
+[15:31:54,806] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd,msg = 
+[15:31:56,823] [ERROR] RankService$AsyncGetRank.doAsunc --> Could not get a resource from the pool
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:59)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:234)
+	at org.tinygame.herostory.util.RedisUtil.getRedis(RedisUtil.java:41)
+	at org.tinygame.herostory.rank.RankService$AsyncGetRank.doAsunc(RankService.java:78)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 127.0.0.1:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:117)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:889)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:424)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:349)
+	at redis.clients.jedis.util.Pool.getResource(Pool.java:50)
+	... 9 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 16 more
+[15:32:54,381] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd,msg = targetUserId: 4294967295
+
+[15:32:54,821] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd,msg = targetUserId: 4294967295
+
+[15:32:55,006] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd,msg = targetUserId: 4294967295
+
+[15:32:56,255] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd,msg = targetUserId: 4294967295
+
+[22:15:02,053] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[22:15:02,272] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[22:15:02,282] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[22:15:02,291] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[22:15:02,299] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[22:15:02,304] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[22:15:02,336] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[22:15:02,675] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[22:15:02,727] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[22:15:02,738] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[22:15:02,744] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[22:15:02,751] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[22:15:02,756] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[22:15:02,759] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[22:15:02,767] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[22:15:02,772] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[22:15:02,780] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[22:15:02,787] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[22:15:02,790] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[22:15:02,800] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[22:15:02,804] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[22:15:02,810] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[22:15:02,823] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[22:15:02,832] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[22:15:02,838] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[22:15:02,842] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[22:15:08,398] [INFO] ServerMain.main --> 服务器启动成功
+[22:15:21,822] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:15:21,822] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:15:32,676] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:15:32,676] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:15:33,863] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:15:33,864] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:15:34,061] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:15:34,061] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:15:55,542] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:15:55,542] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:16:13,936] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[22:16:14,022] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[22:16:14,026] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[22:16:14,036] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[22:16:14,039] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[22:16:14,042] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[22:16:14,053] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[22:16:14,144] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[22:16:14,156] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[22:16:14,160] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[22:16:14,173] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[22:16:14,178] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[22:16:14,188] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[22:16:14,192] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[22:16:14,195] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[22:16:14,204] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[22:16:14,208] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[22:16:14,214] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[22:16:14,225] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[22:16:14,234] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[22:16:14,240] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[22:16:14,245] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[22:16:14,271] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[22:16:14,289] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[22:16:14,294] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[22:16:14,305] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[22:16:16,478] [INFO] ServerMain.main --> 服务器启动成功
+[22:16:38,724] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:16:38,724] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:26,229] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[22:17:26,308] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[22:17:26,310] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[22:17:26,315] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[22:17:26,320] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[22:17:26,322] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[22:17:26,326] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[22:17:26,388] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[22:17:26,390] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[22:17:26,391] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[22:17:26,393] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[22:17:26,395] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[22:17:26,397] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[22:17:26,402] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[22:17:26,405] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[22:17:26,407] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[22:17:26,410] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[22:17:26,412] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[22:17:26,415] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[22:17:26,423] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[22:17:26,426] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[22:17:26,428] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[22:17:26,439] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[22:17:26,440] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[22:17:26,443] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[22:17:26,444] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[22:17:28,286] [INFO] ServerMain.main --> 服务器启动成功
+[22:17:48,840] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:48,840] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:58,740] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:58,740] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:58,921] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:58,921] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:59,102] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:59,103] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:59,271] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:59,271] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:59,444] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:59,444] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:17:59,671] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "1"
+
+[22:17:59,671] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = 1
+[22:18:09,908] [INFO] MainThreadProcessor.lambda$process$0 --> 收到客户端消息，msgClass = org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd,msg = userName: "a"
+password: "q"
+
+[22:18:09,908] [INFO] UserLoginCmdHandler.handle --> 用户登陆, userName = a, password = q
+[22:18:56,150] [ERROR] LoginService$AsyncGetUserByName.doAsunc --> 
+### Error querying database.  Cause: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+### The error may exist in org/tinygame/herostory/login/db/IUserDao.xml
+### The error may involve org.tinygame.herostory.login.db.IUserDao.getUserByName
+### The error occurred while executing a query
+### Cause: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+### The error may exist in org/tinygame/herostory/login/db/IUserDao.xml
+### The error may involve org.tinygame.herostory.login.db.IUserDao.getUserByName
+### The error occurred while executing a query
+### Cause: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:149)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:93)
+	at com.sun.proxy.$Proxy6.getUserByName(Unknown Source)
+	at org.tinygame.herostory.login.LoginService$AsyncGetUserByName.doAsunc(LoginService.java:138)
+	at org.tinygame.herostory.async.AsyncOperationProcessor.lambda$process$1(AsyncOperationProcessor.java:74)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:906)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:831)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.apache.ibatis.datasource.unpooled.UnpooledDataSource.doGetConnection(UnpooledDataSource.java:221)
+	at org.apache.ibatis.datasource.unpooled.UnpooledDataSource.doGetConnection(UnpooledDataSource.java:216)
+	at org.apache.ibatis.datasource.unpooled.UnpooledDataSource.getConnection(UnpooledDataSource.java:95)
+	at org.apache.ibatis.datasource.pooled.PooledDataSource.popConnection(PooledDataSource.java:422)
+	at org.apache.ibatis.datasource.pooled.PooledDataSource.getConnection(PooledDataSource.java:89)
+	at org.apache.ibatis.transaction.jdbc.JdbcTransaction.openConnection(JdbcTransaction.java:138)
+	at org.apache.ibatis.transaction.jdbc.JdbcTransaction.getConnection(JdbcTransaction.java:60)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	... 12 more
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:850)
+	... 33 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	... 35 more
+[22:18:56,160] [ERROR] UserLoginCmdHandler.lambda$null$0 --> 用户登陆失败, userName = a
+[22:19:01,528] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[22:19:01,591] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[22:19:01,592] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[22:19:01,596] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[22:19:01,597] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[22:19:01,598] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[22:19:01,604] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[22:19:01,654] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[22:19:01,657] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[22:19:01,659] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[22:19:01,661] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[22:19:01,663] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[22:19:01,664] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[22:19:01,669] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[22:19:01,672] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[22:19:01,677] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[22:19:01,679] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[22:19:01,681] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[22:19:01,685] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[22:19:01,688] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[22:19:01,689] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[22:19:01,691] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[22:19:01,696] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[22:19:01,697] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[22:19:01,701] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[22:19:01,704] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[22:19:03,447] [INFO] ServerMain.main --> 服务器启动成功
+[22:19:59,940] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[22:20:00,014] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[22:20:00,022] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[22:20:00,030] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[22:20:00,031] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[22:20:00,033] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[22:20:00,040] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[22:20:00,110] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[22:20:00,112] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[22:20:00,116] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[22:20:00,123] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[22:20:00,126] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[22:20:00,129] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[22:20:00,133] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[22:20:00,141] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[22:20:00,144] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[22:20:00,148] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[22:20:00,156] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[22:20:00,160] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[22:20:00,162] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[22:20:00,164] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[22:20:00,169] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[22:20:00,179] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[22:20:00,181] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[22:20:00,186] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[22:20:00,193] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[22:20:02,095] [INFO] ServerMain.main --> 服务器启动成功
+[22:21:10,144] [INFO] CmdHandlerFactory.init --> ==== 完成 Cmd 和 Handler 的关联 ====
+[22:21:10,243] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <===> org.tinygame.herostory.cmdHandler.UserAttkCmdHandler
+[22:21:10,247] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <===> org.tinygame.herostory.cmdHandler.UserLoginCmdHandler
+[22:21:10,257] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <===> org.tinygame.herostory.cmdHandler.UserEntryCmdHandler
+[22:21:10,260] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <===> org.tinygame.herostory.cmdHandler.UserMoveToCmdHandler
+[22:21:10,263] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <===> org.tinygame.herostory.cmdHandler.WhoElseIsHereCmdHandler
+[22:21:10,275] [INFO] CmdHandlerFactory.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <===> org.tinygame.herostory.cmdHandler.GetRankCmdHandler
+[22:21:10,399] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankResult <==> 18
+[22:21:10,403] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$GetRankCmd <==> 17
+[22:21:10,407] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroResult <==> 16
+[22:21:10,410] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$SelectHeroCmd <==> 15
+[22:21:10,414] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginResult <==> 14
+[22:21:10,422] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserLoginCmd <==> 13
+[22:21:10,426] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserDieResult <==> 12
+[22:21:10,430] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserSubtractHpResult <==> 11
+[22:21:10,433] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkResult <==> 10
+[22:21:10,441] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserAttkCmd <==> 9
+[22:21:10,445] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopResult <==> 8
+[22:21:10,448] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserStopCmd <==> 7
+[22:21:10,456] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserQuitResult <==> 6
+[22:21:10,459] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToResult <==> 5
+[22:21:10,462] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserMoveToCmd <==> 4
+[22:21:10,473] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereResult <==> 3
+[22:21:10,477] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$WhoElseIsHereCmd <==> 2
+[22:21:10,480] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult <==> 1
+[22:21:10,483] [INFO] GameMsgRecognizer.init --> org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd <==> 0
+[22:21:12,441] [INFO] ServerMain.main --> 服务器启动成功

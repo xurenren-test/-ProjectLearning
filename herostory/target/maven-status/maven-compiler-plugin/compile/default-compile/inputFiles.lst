@@ -1,3 +1,4 @@
+D:\Project\herostory\src\main\java\org\tinygame\herostory\mq\MQProducer.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\UserMoveToCmdHandler.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\UserEntryCmdHandler.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\WhoElseIsHereCmdHandler.java
@@ -19,6 +20,7 @@ D:\Project\herostory\src\main\java\org\tinygame\herostory\async\AsyncOperationPr
 D:\Project\herostory\src\main\java\org\tinygame\herostory\login\db\IUserDao.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\GetRankCmdHandler.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\UserAttkCmdHandler.java
+D:\Project\herostory\src\main\java\org\tinygame\herostory\mq\VictorMsg.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\CmdHandlerFactory.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\GameMsgDecoder.java
 D:\Project\herostory\src\main\java\org\tinygame\herostory\cmdHandler\ICmdHandler.java

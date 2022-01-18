@@ -1,20 +1,21 @@
 package org.tinygame.herostory.model;
 
 /**
- *用户
+ * 用户
  */
 public class User {
     /**
-     *用户id
-      */
+     * 用户id
+     */
     public int userId;
 
     /**
      * 用户名
      */
     public String userName;
+
     /**
-     *英雄形象
+     * 英雄形象
      */
     public String heroAvatar;
 
@@ -27,5 +28,10 @@ public class User {
      * 当前血量
      */
     public int currHp;
+
+    /**
+     * 是否已经死亡
+     */
+    public boolean died;
 
 }

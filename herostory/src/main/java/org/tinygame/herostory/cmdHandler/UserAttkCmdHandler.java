@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.Broadcaster;
 import org.tinygame.herostory.model.User;
 import org.tinygame.herostory.model.UserManager;
+import org.tinygame.herostory.mq.MQProducer;
+import org.tinygame.herostory.mq.VictorMsg;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
@@ -51,8 +53,18 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
         // 广播减血消息
         broadcastSubtractHp(targetUserId, subtractHp);
 
-        if (targetUser.currHp <= 0){
+        if (targetUser.currHp <= 0) {
             broadcastDie(targetUserId);
+
+            if (!targetUser.died) {
+                targetUser.died = true;
+
+                // 发送消息到 MQ
+                VictorMsg mqMsg = new VictorMsg();
+                mqMsg.winnerId = attkUserId;
+                mqMsg.loserId = targetUserId;
+                MQProducer.sendMsg("Victor", mqMsg);
+            }
         }
 
     }
@@ -61,7 +73,7 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
      * 广播减血消息
      *
      * @param targetUserId 目标用户id
-     * @param subtractHp 减血量
+     * @param subtractHp   减血量
      */
     private static void broadcastSubtractHp(int targetUserId, int subtractHp) {
         if (targetUserId <= 0 || subtractHp <= 0) {

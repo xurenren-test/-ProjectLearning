@@ -13,6 +13,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
+import org.tinygame.herostory.mq.MQProducer;
 import org.tinygame.herostory.util.RedisUtil;
 
 /**
@@ -29,6 +30,7 @@ public class ServerMain {
         GameMsgRecognizer.init();
         MySqlSessionFactory.init();
         RedisUtil.init();
+        MQProducer.init();
 
         // NioEventLoopGroup 相当于线程池
         // 负责处理客户端连接（相当于酒店门口迎宾）

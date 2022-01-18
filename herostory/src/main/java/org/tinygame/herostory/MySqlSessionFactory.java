@@ -23,7 +23,7 @@ public final class MySqlSessionFactory {
      */
     public static void init() {
         try {
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("MyBatisConfig.xml"));
+            sqlSessionFactory = (new SqlSessionFactoryBuilder()).build(Resources.getResourceAsReader("MyBatisConfig.xml"));
 
         } catch (Exception e) {
             throw new RuntimeException(e);

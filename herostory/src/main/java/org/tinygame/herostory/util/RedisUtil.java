@@ -23,7 +23,7 @@ public final class RedisUtil {
      */
     public static void init() {
         try {
-            jedisPool = new JedisPool("172.16.238.91", 6379);
+            jedisPool = new JedisPool("r-tj7yces4z309ti56qy.redis.rds.aliyuncs.com/redisConfig/vpc/BAOYUN/test/iyb-user", 6379);
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -40,7 +40,7 @@ public final class RedisUtil {
 
         Jedis redis = jedisPool.getResource();
         // redis密码验证
-        redis.auth("root");
+        redis.auth("HbKDRR1%HbMETVsC");
         return redis;
     }
 }

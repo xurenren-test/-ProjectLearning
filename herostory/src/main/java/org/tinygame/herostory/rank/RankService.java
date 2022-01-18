@@ -46,7 +46,7 @@ public final class RankService {
         if (callback == null) {
             return;
         }
-        IAsyncOperation asyncOp = new AsyncGetRank(){
+        IAsyncOperation asyncOp = new AsyncGetRank() {
             @Override
             public void doFinish() {
                 callback.apply(this.getRankItemList());
@@ -110,4 +110,27 @@ public final class RankService {
         }
     }
 
+    /**
+     * 刷新排行榜
+     *
+     * @param winnerId 赢家id
+     * @param loserId  输家id
+     */
+    public void refreshRank(int winnerId, int loserId) {
+        try(Jedis redis = RedisUtil.getRedis()) {
+            //增加用户的胜利次数和失败次数
+            redis.hincrBy("User_" + winnerId ,"win",1);
+            redis.hincrBy("User_" + loserId,"Lose",1);
+
+            // 查看赢家胜利次数
+            String strWin = redis.hget("User_" + winnerId,"win");
+            int winInt = Integer.parseInt(strWin);
+
+            // 更新排行榜
+            redis.zadd("Rank", winInt, String.valueOf(winnerId));
+        }catch (Exception e){
+            LOGGER.error(e.getMessage(), e);
+        }
+
+    }
 }

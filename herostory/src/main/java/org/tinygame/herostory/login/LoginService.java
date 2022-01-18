@@ -135,27 +135,27 @@ public final class LoginService {
                 // 获取DAO (通过反射 + Javassist技术，根据IUserDao.xml生成)
                 IUserDao dao = mySqlSession.getMapper(IUserDao.class);
                 // 获取用户实体
-                UserEntity userEntity = dao.getUserByName(userName);
+                UserEntity UEntity = dao.getUserByName(userName);
 
                 LOGGER.info("当前线程 = {}", Thread.currentThread().getName());
 
-                if (userEntity != null) {
-                    if (!password.equals(userEntity.password)) {
-                        LOGGER.error("用户密码错误, userId = {}, userName = {}", userEntity.userId, userName);
+                if (UEntity != null) {
+                    if (!password.equals(UEntity.password)) {
+                        LOGGER.error("用户密码错误, userId = {}, userName = {}", UEntity.userId, userName);
                     }
                 } else {
                     // 如果用户实体为空，则新建用户
-                    userEntity = new UserEntity();
-                    userEntity.userName = userName;
-                    userEntity.password = password;
-                    userEntity.heroAvatar = "Hero_Shaman"; // 默认
+                    UEntity = new UserEntity();
+                    UEntity.userName = userName;
+                    UEntity.password = password;
+                    UEntity.heroAvatar = "Hero_Shaman"; // 默认
 
                     // 将用户实体添加到数据库
-                    dao.insertInto(userEntity);
+                    dao.insertInto(UEntity);
                 }
-                _userEntity = userEntity;
+                _userEntity = UEntity;
 
-                LoginService.getInstance().updateUserBasicInfoInRedis(userEntity);
+                LoginService.getInstance().updateUserBasicInfoInRedis(UEntity);
             } catch (Exception e) {
                 LOGGER.error(e.getMessage(), e);
             }
